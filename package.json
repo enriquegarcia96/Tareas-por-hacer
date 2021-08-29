@@ -1,0 +1,24 @@
+{
+  "name": "tareas-por-hacer-app-de-consola",
+  "version": "1.0.0",
+  "description": "Aplicación de consola 📚",
+  "main": "index.js",
+  "dependencies": {
+    "colors": "^1.4.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/enriquegarcia96/Tareas-por-hacer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/enriquegarcia96/Tareas-por-hacer/issues"
+  },
+  "homepage": "https://github.com/enriquegarcia96/Tareas-por-hacer#readme"
+}
