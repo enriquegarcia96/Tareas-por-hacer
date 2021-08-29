@@ -4,7 +4,8 @@
   "description": "Aplicación de consola 📚",
   "main": "index.js",
   "dependencies": {
-    "colors": "^1.4.0"
+    "colors": "^1.4.0",
+    "inquirer": "^8.1.2"
   },
   "devDependencies": {},
   "scripts": {
