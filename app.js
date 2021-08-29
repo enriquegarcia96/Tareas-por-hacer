@@ -1,30 +1,20 @@
-require('colors');
+require("colors");
 
-const { inquirerMenu } = require('./helpers/inquirer');
+const { inquirerMenu, pausa } = require("./helpers/inquirer");
 
+const main = async () => {
+  console.clear();
+  console.log("Hola mundo");
 
-const main = async() => {
+  let opt = "";
 
-    console.clear()
-    console.log('Hola mundo')    
+  do {
+    //.- Muestra el menu .-//
+    opt = await inquirerMenu();
+    console.log({ opt });
 
-    let opt = '';
+    await pausa();
+  } while (opt !== "0");
+};
 
-    do{
-        //.- Mustra el menu .-//
-        opt = await inquirerMenu();
-        console.log({opt});
-
-        
-        
-
-    }while(opt !== '0')
-
-
-    // pausa();
-
-}
-
-
-
-main()
+main();
