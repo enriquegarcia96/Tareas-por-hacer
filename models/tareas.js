@@ -1,5 +1,4 @@
 const Tarea = require('./tarea');
-const inquirer = require('inquirer')
 /**
  * _listado:
  * { 'uuid-1231231221: {id:12 , dec:asda, completadoEn:3123}  ' },
@@ -27,6 +26,14 @@ class Tareas {
 
     constructor(){
         this._listado = {};
+    }
+
+    borrarTarea (id = ''){
+
+        if(this._listado[id]){
+            delete this._listado[id];
+        }
+
     }
 
 
@@ -57,6 +64,8 @@ class Tareas {
         });
     }
 
+
+
     listarPendientesCompletadas(completadas = true){
 
         
@@ -72,7 +81,7 @@ class Tareas {
             if (completadas) {
                 if (completadoEn) {
                     contador += 1;
-                    console.log(`${(contador + '.').green} ${desc} :: ${estado}`);
+                    console.log(`${(contador + '.').green} ${desc} :: ${completadoEn.green}`);
                     
                 }
             }else{
@@ -85,8 +94,37 @@ class Tareas {
             }
 
         })
+    }
 
-        
+
+
+
+    /***
+     * este metodo se encagarga de cambiar las tareas 
+     * de forma "completa o pendiente"
+     */
+    toggleCompletadas(ids = []){
+
+        ids.forEach(id => {
+
+            const tarea = this._listado[id];
+            if (!tarea.completadoEn) {
+                tarea.completadoEn = new Date().toISOString(); //genera la fecha completamente
+            }
+        });
+
+        //.- si se selecciona una tarea en completadas y pasa a no completadas .-//
+        this.listadoArr.forEach(tarea => {
+
+            if (!ids.includes(tarea.id)) {//pregunto si existe o incluye la tarea.id que se encuentra registrada
+
+                // const tarea = this._listado[id];
+                // tarea.completadoEn = null;
+                this._listado[tarea.id].completadoEn = null
+            }
+
+
+        })
 
     }
 
